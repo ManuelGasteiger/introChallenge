@@ -15,22 +15,24 @@ export const CharacterConversionHistory: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Character Conversion History</h1>
-      <table>
+    <div className="max-w-md mx-auto my-8 p-8 bg-gray-100 rounded shadow-md h-full">
+      <h1 className="text-2xl font-bold mb-4">Character Conversion History</h1>
+      <table className="w-full border-collapse">
         <thead>
-          <tr>
-            <th>CharCode</th>
-            <th>Character</th>
-            <th>Date</th>
+          <tr className="bg-gray-200">
+            <th className="py-2 px-4 border">CharCode</th>
+            <th className="py-2 px-4 border">Character</th>
+            <th className="py-2 px-4 border">Date</th>
           </tr>
         </thead>
         <tbody>
           {history.map((item) => (
-            <tr key={item._id}>
-              <td>{item.number}</td>
-              <td>{item.character}</td>
-              <td>{new Date(item.createdAt).toISOString().split("T")[0]}</td>
+            <tr key={item._id} className="border">
+              <td className="py-2 px-4 border">{item.number}</td>
+              <td className="py-2 px-4 border">{item.character}</td>
+              <td className="py-2 px-4 border">
+                {new Date(item.createdAt).toISOString().split("T")[0]}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -38,3 +40,9 @@ export const CharacterConversionHistory: React.FC = () => {
     </div>
   );
 };
+
+/*
+
+      
+
+*/

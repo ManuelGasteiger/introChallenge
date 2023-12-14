@@ -1,4 +1,3 @@
-import "./App.css";
 import "react-tabs/style/react-tabs.css";
 import { CharacterConversion } from "./characterConversion";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -13,10 +12,10 @@ function App() {
           <Tab>History</Tab>
         </TabList>
 
-        <TabPanel>
+        <TabPanel className="-mt-8">
           <CharacterConversion />
         </TabPanel>
-        <TabPanel>
+        <TabPanel className="-mt-8">
           <CharacterConversionHistory />
         </TabPanel>
       </Tabs>
