@@ -5,7 +5,6 @@ Conversion = mongoose.model("Conversion");
 exports.convert = async (req, res) => {
   const charCode = req.params.code;
   const character = String.fromCharCode(charCode);
-  console.log(`Got charCode ${charCode} and character ${character}`);
 
   const conversion = new Conversion({
     number: charCode,

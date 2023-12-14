@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const app = express(),
   port = process.env.PORT || 3000,
   mongoose = require("mongoose"),
@@ -8,7 +9,10 @@ const app = express(),
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/charCodeConversionDb");
+
+process.env.NODE_ENV === "test"
+  ? mongoose.connect(process.env.DB_TEST_URI)
+  : mongoose.connect(process.env.DB_URI);
 
 // TODO: switch CORS to proper origin
 app.use(cors({ origin: "*" }));
@@ -22,3 +26,5 @@ routes(app); //register the route
 app.listen(port);
 
 console.log("charCode conversion RESTful API server started on: " + port);
+
+module.exports = app;
